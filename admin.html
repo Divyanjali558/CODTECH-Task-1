@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Add Project</h1>
+    <form method="POST" action="/admin">
+        <input type="hidden" name="type" value="project">
+        <label>Title:</label><br>
+        <input type="text" name="title"><br>
+        <label>Description:</label><br>
+        <textarea name="description"></textarea><br>
+        <button type="submit">Add Project</button>
+    </form>
+    <h1>Add Blog Post</h1>
+    <form method="POST" action="/admin">
+        <input type="hidden" name="type" value="blog_post">
+        <label>Title:</label><br>
+        <input type="text" name="title"><br>
+        <label>Content:</label><br>
+        <textarea name="content"></textarea><br>
+        <button type="submit">Add Blog Post</button>
+    </form>
+    <hr>
+    <h2>Current Projects</h2>
+    <ul>
+        {% for project in projects %}
+        <li>{{ project.title }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Current Blog Posts</h2>
+    <ul>
+        {% for post in blog_posts %}
+        <li>{{ post.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
